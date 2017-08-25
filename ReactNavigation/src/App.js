@@ -9,8 +9,9 @@ import {
   Text,
   View
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
-export default class ReactNavigation extends Component {
+export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -28,6 +29,12 @@ export default class ReactNavigation extends Component {
     );
   }
 }
+
+const ReactNavigation = StackNavigator({
+  Home: {
+    screen: HomeScreen,
+  },
+});
 
 const styles = StyleSheet.create({
   container: {
