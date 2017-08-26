@@ -5,84 +5,26 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  Button,
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-export default class HomeScreen extends Component {
-  static navigationOptions = ({ navigationOptions }) => ({
-    headerTitle: 'Home',
-    headerRight: (
-      <Button
-        color={Platform.OS === 'android' ? "#3F51B5" : "#FFFFFF"}
-        onPress={() => {}}
-        title="Log out"
-      />
-    ),
-    headerStyle: {
-      ...navigationOptions.headerStyle,
-      paddingRight: Platform.OS === 'android' ? 16 : 0,
-    },
-  });
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar
-          backgroundColor="#f12426"
-          barStyle="light-content"
-        />
-        <Text style={styles.welcome}>
-          Welcome to React Navigation!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import HomeScreen from './scenes/HomeScreen';
+import DetailScreen from './scenes/DetailScreen';
 
 const ReactNavigation = StackNavigator({
   Home: {
     screen: HomeScreen,
-  }},
-  {
-    navigationOptions: {
-      headerStyle: {
-        backgroundColor: '#f74c4f'
-      },
-      headerTintColor: '#FFFFFF',
-    }
+  },
+  Detail: {
+    screen: DetailScreen,
+  }}, {
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#f74c4f'
+    },
+    headerTintColor: '#FFFFFF',
+  }
   }
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('ReactNavigation', () => ReactNavigation);
