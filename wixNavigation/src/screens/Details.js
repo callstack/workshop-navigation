@@ -1,19 +1,11 @@
 import React from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
 
-export default function Home({ navigator }) {
+export default function Details({ navigator }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home Screen</Text>
-      <Button
-        title="Push Screen"
-        onPress={() =>
-          navigator.push({
-            screen: 'wixNavigation.details',
-            title: 'Details',
-          })}
-        color="blue"
-      />
+      <Text style={styles.title}>Details Screen</Text>
+      <Button title="Pop Screen" onPress={() => navigator.pop()} color="blue" />
     </View>
   );
 }
