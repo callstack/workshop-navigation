@@ -5,6 +5,8 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Button,
+  Platform,
   StatusBar,
   StyleSheet,
   Text,
@@ -13,9 +15,20 @@ import {
 import { StackNavigator } from 'react-navigation';
 
 export default class HomeScreen extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigationOptions }) => ({
     headerTitle: 'Home',
-  };
+    headerRight: (
+      <Button
+        color={Platform.OS === 'android' ? "#3F51B5" : "#FFFFFF"}
+        onPress={() => {}}
+        title="Log out"
+      />
+    ),
+    headerStyle: {
+      ...navigationOptions.headerStyle,
+      paddingRight: Platform.OS === 'android' ? 16 : 0,
+    },
+  });
 
   render() {
     return (
