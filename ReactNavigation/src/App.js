@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  StatusBar,
   StyleSheet,
   Text,
   View
@@ -14,15 +15,15 @@ import { StackNavigator } from 'react-navigation';
 export default class HomeScreen extends Component {
   static navigationOptions = {
     headerTitle: 'Home',
-    headerStyle: {
-      backgroundColor: '#f74c4f'
-    },
-    headerTintColor: '#FFFFFF',
   };
 
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar
+          backgroundColor="#f12426"
+          barStyle="light-content"
+        />
         <Text style={styles.welcome}>
           Welcome to React Navigation!
         </Text>
@@ -41,7 +42,15 @@ export default class HomeScreen extends Component {
 const ReactNavigation = StackNavigator({
   Home: {
     screen: HomeScreen,
-  }}
+  }},
+  {
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f74c4f'
+      },
+      headerTintColor: '#FFFFFF',
+    }
+  }
 );
 
 const styles = StyleSheet.create({
