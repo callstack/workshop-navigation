@@ -1,0 +1,25 @@
+{
+  "extends": "callstack-io",
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "env": {
+    "jest": true
+  },
+  "globals": {
+    "ReactClass": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "all",
+        "singleQuote": true
+      }
+    ]
+  }
+}
