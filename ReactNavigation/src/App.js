@@ -12,6 +12,14 @@ import {
 import { StackNavigator } from 'react-navigation';
 
 export default class HomeScreen extends Component {
+  static navigationOptions = {
+    headerTitle: 'Home',
+    headerStyle: {
+      backgroundColor: '#f74c4f'
+    },
+    headerTintColor: '#FFFFFF',
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -33,8 +41,8 @@ export default class HomeScreen extends Component {
 const ReactNavigation = StackNavigator({
   Home: {
     screen: HomeScreen,
-  },
-});
+  }}
+);
 
 const styles = StyleSheet.create({
   container: {
