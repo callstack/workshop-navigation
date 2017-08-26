@@ -11,6 +11,9 @@ export default function Home({ navigator }) {
           navigator.push({
             screen: 'wixNavigation.details',
             title: 'Details',
+            passProps: {
+              id: 100,
+            },
           })}
         color="blue"
       />
