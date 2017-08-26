@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import { Button, View, Platform, Text, StyleSheet } from 'react-native';
 
 export default class DetailScreen extends Component {
-  static navigationOptions = {
-    title: 'Detail'
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: `Detail - ${navigation.state.params.title}`
+  });
 
   goBack = () => {
     const { navigation } = this.props;
@@ -14,9 +14,13 @@ export default class DetailScreen extends Component {
   };
 
   render() {
+    const { navigation } = this.props;
+    const { id } = navigation.state.params;
+
     return (
       <View style={styles.container}>
         <Text>Look ma! I'm another screen</Text>
+        <Text>{id}</Text>
         <Button
           color={Platform.OS === 'android' ? "#3F51B5" : "#007aff"}
           onPress={this.goBack}

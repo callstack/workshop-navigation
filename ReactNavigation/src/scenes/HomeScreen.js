@@ -28,7 +28,7 @@ export default class HomeScreen extends Component {
 
   pushDetailScreen = () => {
     const { navigation } = this.props;
-    navigation.navigate('Detail');
+    navigation.navigate('Detail', { id: 100, title: 'Hello!' });
   };
 
   render() {
