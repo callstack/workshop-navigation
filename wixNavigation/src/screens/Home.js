@@ -13,6 +13,7 @@ export default function Home({ navigator }) {
             title: 'Details',
             passProps: {
               id: 100,
+              navBarBackgroundColor: 'blue',
             },
           })}
         color="blue"
@@ -20,6 +21,11 @@ export default function Home({ navigator }) {
     </View>
   );
 }
+
+Home.navigatorStyle = {
+  navBarBackgroundColor: 'rgb(255, 0, 0)',
+  navBarTextColor: '#FFFFFF',
+};
 
 const styles = StyleSheet.create({
   container: {
