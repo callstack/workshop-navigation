@@ -9,14 +9,22 @@ import {
   Text,
   View
 } from 'react-native';
+import { NavigationActions } from 'react-navigation'
 
 export default class HomeScreen extends Component {
-  static navigationOptions = ({ navigationOptions }) => ({
+  static navigationOptions = ({ navigation, navigationOptions }) => ({
     headerTitle: 'Home',
     headerRight: (
       <Button
         color={Platform.OS === 'android' ? "#3F51B5" : "#FFFFFF"}
-        onPress={() => {}}
+        onPress={() => {
+          navigation.dispatch(NavigationActions.reset({
+            index: 0,
+            actions: [
+              NavigationActions.navigate({ routeName: 'Login' })
+            ]
+          }));
+        }}
         title="Log out"
       />
     ),

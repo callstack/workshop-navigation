@@ -22,7 +22,7 @@ const ReactNavigation = StackNavigator({
       screen: DetailScreen,
     }},
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Home',
     navigationOptions: {
       headerStyle: {
         backgroundColor: '#f74c4f'
