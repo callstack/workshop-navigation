@@ -4,15 +4,18 @@
 
 import {
   AppRegistry,
+  Platform,
 } from 'react-native';
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import { DrawerNavigator, TabNavigator, StackNavigator } from 'react-navigation';
 
 import HomeStack from './scenes/Home';
 import LoginScreen from './scenes/LoginScreen';
 import SecondScreen from './scenes/SecondScreen';
 import ThirdScreen from './scenes/ThirdScreen';
 
-const DrawerStack = TabNavigator({
+const MainNavigator = Platform.OS === 'android' ? DrawerNavigator : TabNavigator;
+
+const DrawerStack = MainNavigator({
   Home: {
     screen: HomeStack,
   },

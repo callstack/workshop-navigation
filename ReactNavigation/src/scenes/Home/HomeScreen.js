@@ -47,6 +47,16 @@ export default class HomeScreen extends Component {
     navigation.navigate('DrawerOpen');
   };
 
+  openSecondTab = () => {
+    const { navigation } = this.props;
+    navigation.navigate('SecondScreen');
+  };
+
+  openThirdTab = () => {
+    const { navigation } = this.props;
+    navigation.navigate('ThirdScreen');
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -63,10 +73,24 @@ export default class HomeScreen extends Component {
           title="Push screen"
         />
         { Platform.OS === "android" && <View style={styles.separator} /> }
+        { Platform.OS === "android" && (
+          <Button
+            color={Platform.OS === 'android' ? "#3F51B5" : "#007aff"}
+            onPress={this.openDrawer}
+            title="Open drawer"
+          />
+        )}
+        { Platform.OS === "android" && <View style={styles.separator} /> }
         <Button
           color={Platform.OS === 'android' ? "#3F51B5" : "#007aff"}
-          onPress={this.openDrawer}
-          title="Open drawer"
+          onPress={this.openSecondTab}
+          title="Go to Second Screen"
+        />
+        { Platform.OS === "android" && <View style={styles.separator} /> }
+        <Button
+          color={Platform.OS === 'android' ? "#3F51B5" : "#007aff"}
+          onPress={this.openThirdTab}
+          title="Go to Third Screen"
         />
       </View>
     );
