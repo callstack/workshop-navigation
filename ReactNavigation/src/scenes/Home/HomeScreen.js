@@ -20,6 +20,9 @@ export default class HomeScreen extends Component {
         onPress={() => {
           navigation.dispatch(NavigationActions.reset({
             index: 0,
+            // We use null to reset the root navigator
+            // See https://github.com/react-community/react-navigation/blob/master/docs/guides/Navigation-Actions.md#reset
+            key: null,
             actions: [
               NavigationActions.navigate({ routeName: 'Login' })
             ]
@@ -39,6 +42,11 @@ export default class HomeScreen extends Component {
     navigation.navigate('Detail', { id: 100, title: 'Hello!' });
   };
 
+  openDrawer = () => {
+    const { navigation } = this.props;
+    navigation.navigate('DrawerOpen');
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -53,6 +61,12 @@ export default class HomeScreen extends Component {
           color={Platform.OS === 'android' ? "#3F51B5" : "#007aff"}
           onPress={this.pushDetailScreen}
           title="Push screen"
+        />
+        { Platform.OS === "android" && <View style={styles.separator} /> }
+        <Button
+          color={Platform.OS === 'android' ? "#3F51B5" : "#007aff"}
+          onPress={this.openDrawer}
+          title="Open drawer"
         />
       </View>
     );
@@ -69,5 +83,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+  },
+  separator: {
+    marginBottom: 8,
   },
 });

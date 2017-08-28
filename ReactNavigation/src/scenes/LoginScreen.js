@@ -14,7 +14,7 @@ export default class LoginScreen extends Component {
     const resetAction = NavigationActions.reset({
       index: 0,
       actions: [
-        NavigationActions.navigate({ routeName: 'Home' })
+        NavigationActions.navigate({ routeName: 'Drawer' })
       ]
     });
     navigation.dispatch(resetAction);
@@ -24,7 +24,7 @@ export default class LoginScreen extends Component {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#f12426"/>
-        <Text>Inputs here!</Text>
+        <Text style={styles.text}>Inputs here!</Text>
         <Button
           color={Platform.OS === 'android' ? "#3F51B5" : "#007aff"}
           onPress={this.onLogIn}
@@ -41,4 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {
+    marginBottom: 8,
+  }
 });
