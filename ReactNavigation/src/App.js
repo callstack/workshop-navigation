@@ -5,25 +5,32 @@
 import {
   AppRegistry,
 } from 'react-native';
-import { DrawerNavigator, StackNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 
 import HomeStack from './scenes/Home';
 import LoginScreen from './scenes/LoginScreen';
 import SecondScreen from './scenes/SecondScreen';
 import ThirdScreen from './scenes/ThirdScreen';
 
-const DrawerStack = DrawerNavigator({
+const DrawerStack = TabNavigator({
   Home: {
     screen: HomeStack,
   },
   SecondScreen: {
     screen: SecondScreen,
+    navigationOptions: {
+      title: 'Second',
+    }
   },
   ThirdScreen: {
     screen: ThirdScreen,
+    navigationOptions: {
+      title: 'Third',
+    }
   },
   }, {
     initialRouteName: 'Home',
+    tabBarPosition: 'bottom',
   },
 );
 
