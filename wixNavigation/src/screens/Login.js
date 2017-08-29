@@ -29,12 +29,14 @@ export default class Login extends Component {
       Navigation.startTabBasedApp({
         tabs: [
           {
-            label: 'home',
+            label: 'Home',
+            title: 'Home',
             screen: screens.home,
             icon: require('../assets/ic_home.png'),
           },
           {
-            label: 'about',
+            label: 'About',
+            title: 'About',
             screen: screens.about,
             icon: require('../assets/ic_info.png'),
           },
