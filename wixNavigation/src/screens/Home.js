@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Navigation } from 'react-native-navigation';
 import { View, StyleSheet, Text, Button } from 'react-native';
+import { screens } from '../constants';
 
 export default class Home extends Component {
   static navigatorStyle = {
@@ -9,6 +9,11 @@ export default class Home extends Component {
   };
 
   static navigatorButtons = {
+    leftButtons: [
+      {
+        id: 'sideMenu',
+      },
+    ],
     rightButtons: [
       {
         title: 'Logout',
@@ -16,24 +21,6 @@ export default class Home extends Component {
       },
     ],
   };
-
-  constructor(props) {
-    super(props);
-    // if you want to listen on navigator events, set this up
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-  }
-
-  onNavigatorEvent(event) {
-    if (event.type === 'NavBarButtonPress') {
-      if (event.id === 'logout') {
-        Navigation.startSingleScreenApp({
-          screen: {
-            screen: 'wixNavigation.login',
-          },
-        });
-      }
-    }
-  }
 
   render() {
     return (
@@ -43,7 +30,7 @@ export default class Home extends Component {
           title="Push Screen"
           onPress={() =>
             this.props.navigator.push({
-              screen: 'wixNavigation.details',
+              screen: screens.details,
               title: 'Details',
               passProps: {
                 id: 100,

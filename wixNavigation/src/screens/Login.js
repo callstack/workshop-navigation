@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { screens } from '../constants';
 
 export default class Login extends Component {
   static navigatorStyle = {
@@ -19,7 +20,7 @@ export default class Login extends Component {
 
   handleLogin = () => {
     this.props.navigator.resetTo({
-      screen: 'wixNavigation.home',
+      screen: screens.home,
       title: 'Home',
     });
   };
