@@ -9,6 +9,7 @@ import DetailScreen from '../DetailScreen';
 const HomeStack = StackNavigator({
   Home: {
     screen: HomeScreen,
+    path: 'home',
   },
   Detail: {
     screen: DetailScreen,

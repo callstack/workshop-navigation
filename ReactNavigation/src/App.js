@@ -4,10 +4,10 @@
 
 import React from 'react';
 import {
-  AppRegistry,
   Platform,
 } from 'react-native';
-import { DrawerNavigator, TabNavigator, StackNavigator } from 'react-navigation';
+import { addNavigationHelpers, DrawerNavigator, TabNavigator, StackNavigator } from 'react-navigation';
+import { connect } from 'react-redux';
 
 import HomeStack from './scenes/Home';
 import LoginScreen from './scenes/LoginScreen';
@@ -39,22 +39,27 @@ const DrawerStack = MainNavigator({
   },
 );
 
-const ReactNavigation = StackNavigator({
-  Login: {
-    screen: LoginScreen,
-  },
+export const AppNavigator = StackNavigator({
   Drawer: {
     screen: DrawerStack,
     path: 'home',
   },
+  Login: {
+    screen: LoginScreen,
+  },
 }, {
-  initialRouteName: 'Drawer',
   navigationOptions: {
     header: null,
   },
 });
 
-const prefix = Platform.OS === 'android' ? 'navigation://navigation/' : 'navigation://';
-const MainApp = () => <ReactNavigation uriPrefix={prefix} />;
+const App = ({ dispatch, nav }) => (
+  <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
+);
 
-AppRegistry.registerComponent('ReactNavigation', () => MainApp);
+const mapStateToProps = (state) => ({
+  nav: state.nav
+});
+
+const AppWithNavigationState = connect(mapStateToProps)(App);
+export default AppWithNavigationState;
