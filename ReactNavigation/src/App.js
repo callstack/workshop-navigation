@@ -2,6 +2,7 @@
  * @flow
  */
 
+import React from 'react';
 import {
   AppRegistry,
   Platform,
@@ -18,6 +19,7 @@ const MainNavigator = Platform.OS === 'android' ? DrawerNavigator : TabNavigator
 const DrawerStack = MainNavigator({
   Home: {
     screen: HomeStack,
+    path: 'home',
   },
   SecondScreen: {
     screen: SecondScreen,
@@ -43,12 +45,16 @@ const ReactNavigation = StackNavigator({
   },
   Drawer: {
     screen: DrawerStack,
+    path: 'home',
   },
 }, {
   initialRouteName: 'Drawer',
   navigationOptions: {
     header: null,
-  }
+  },
 });
 
-AppRegistry.registerComponent('ReactNavigation', () => ReactNavigation);
+const prefix = Platform.OS === 'android' ? 'navigation://navigation/' : 'navigation://';
+const MainApp = () => <ReactNavigation uriPrefix={prefix} />;
+
+AppRegistry.registerComponent('ReactNavigation', () => MainApp);

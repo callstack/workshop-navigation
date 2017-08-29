@@ -4,9 +4,13 @@ import React, { Component } from 'react';
 import { Button, View, Platform, Text, StyleSheet } from 'react-native';
 
 export default class DetailScreen extends Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: `Detail - ${navigation.state.params.title}`
-  });
+  static navigationOptions = ({ navigation }) => {
+    const title =  navigation.state.params.title;
+    return {
+
+      title: `Detail${title ? ` - ${title}` : ''}`
+    }
+  };
 
   goBack = () => {
     const { navigation } = this.props;

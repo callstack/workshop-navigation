@@ -12,6 +12,8 @@ const HomeStack = StackNavigator({
   },
   Detail: {
     screen: DetailScreen,
+    // Deep linking example: adb shell am start -W -a android.intent.action.VIEW -d "navigation://navigation/home/home/detail/978" com.reactnavigation
+    path: 'detail/:id/'
   },
 }, {
   initialRouteName: 'Home',
