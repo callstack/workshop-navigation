@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { Navigation } from 'react-native-navigation';
+import { View, TextInput, Button, StyleSheet, Platform } from 'react-native';
 import { screens } from '../constants';
 
 export default class Login extends Component {
@@ -19,10 +20,27 @@ export default class Login extends Component {
   };
 
   handleLogin = () => {
-    this.props.navigator.resetTo({
-      screen: screens.home,
-      title: 'Home',
-    });
+    if (Platform.OS === 'android') {
+      this.props.navigator.resetTo({
+        screen: screens.home,
+        title: 'Home',
+      });
+    } else {
+      Navigation.startTabBasedApp({
+        tabs: [
+          {
+            label: 'home',
+            screen: screens.home,
+            icon: require('../assets/ic_home.png'),
+          },
+          {
+            label: 'about',
+            screen: screens.about,
+            icon: require('../assets/ic_info.png'),
+          },
+        ],
+      });
+    }
   };
 
   render() {
