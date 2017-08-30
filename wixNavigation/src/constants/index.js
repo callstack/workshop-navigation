@@ -6,4 +6,5 @@ export const screens = {
   drawer: 'wixNavigation.drawer',
   tabsContainer: 'wixNavigation.tabsContainer',
   tabsContent: 'wixNavigation.tabsContent',
+  modal: 'wixNavigation.modal',
 };

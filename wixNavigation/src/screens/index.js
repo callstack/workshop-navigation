@@ -7,6 +7,7 @@ import About from './About';
 import Drawer from '../components/Drawer';
 import TabsContainer from './tabs/TabsContainer';
 import TabContent from './tabs/TabContent';
+import Modal from '../components/Modal';
 import withDrawer from '../hoc/withDrawer';
 import { screens } from '../constants';
 
@@ -20,6 +21,8 @@ export default function registerScreens() {
     withDrawer(screens.about)(About),
   );
   Navigation.registerComponent(screens.drawer, () => Drawer);
+
+  Navigation.registerComponent(screens.modal, () => Modal);
 
   if (Platform.OS === 'android') {
     Navigation.registerComponent(screens.tabsContainer, () => TabsContainer);

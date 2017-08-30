@@ -40,6 +40,22 @@ export default class Home extends Component {
             })}
           color="blue"
         />
+        <View style={{ marginTop: 10 }}>
+          <Button
+            title="Show Modal"
+            onPress={() =>
+              this.props.navigator.showLightBox({
+                style: {
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  tapBackgroundToDismiss: true,
+                },
+                screen: screens.modal,
+                passProps: {
+                  id: 900,
+                },
+              })}
+          />
+        </View>
       </View>
     );
   }
