@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, Button } from 'react-native';
+import { View, StyleSheet, Text, Button, Linking } from 'react-native';
 import { screens } from '../constants';
 
 export default class Home extends Component {
@@ -21,6 +21,28 @@ export default class Home extends Component {
         id: 'logout',
       },
     ],
+  };
+
+  componentDidMount() {
+    Linking.addEventListener('url', this.handleOpenURL);
+  }
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this.handleOpenURL);
+  }
+
+  handleOpenURL = event => {
+    const urlSplit = event.url.split('/');
+    const id = urlSplit[urlSplit.length - 1];
+    this.props.navigator.push({
+      screen: screens.details,
+      title: 'Details',
+      passProps: {
+        id,
+        navBarBackgroundColor: 'blue',
+      },
+      animated: false,
+    });
   };
 
   render() {
