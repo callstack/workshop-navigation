@@ -1,7 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react';
-import { AppRegistry, Linking, Platform } from 'react-native';
+import { AppRegistry, Linking, Platform, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 
 import configureStore from './redux/configureStore';
@@ -15,6 +15,9 @@ class Root extends Component {
   };
 
   componentDidMount() {
+    StatusBar.setBackgroundColor('#f12426');
+    StatusBar.setBarStyle('light-content');
+
     const { isLinkingChecked } = this.state;
     if (!isLinkingChecked) {
       Linking.getInitialURL().then(url => {

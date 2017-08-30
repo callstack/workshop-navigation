@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import {
   Button,
   Platform,
-  StatusBar,
   StyleSheet,
   Text,
   View
@@ -60,10 +59,6 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar
-          backgroundColor="#f12426"
-          barStyle="light-content"
-        />
         <Text style={styles.welcome}>
           Welcome to React Navigation!
         </Text>
