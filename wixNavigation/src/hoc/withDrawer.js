@@ -47,6 +47,19 @@ const withDrawer = screenId => WrappedComponent => {
         this.props.navigator.resetTo({
           screen: event.link,
           title: event.payload,
+          topTabs:
+            event.link === screens.tabsContainer
+              ? [
+                  {
+                    screenId: screens.tabsContent,
+                    title: 'TAB1',
+                  },
+                  {
+                    screenId: screens.tabsContent,
+                    title: 'TAB2',
+                  },
+                ]
+              : undefined,
         });
       } else if (
         event.type === 'NavBarButtonPress' &&

@@ -11,6 +11,10 @@ const routes = [
     id: screens.about,
     title: 'About',
   },
+  {
+    id: screens.tabsContainer,
+    title: 'Tabs',
+  },
 ];
 
 export default class Drawer extends Component {
