@@ -6,6 +6,7 @@ export default class Home extends Component {
   static navigatorStyle = {
     navBarBackgroundColor: 'rgb(255, 0, 0)',
     navBarTextColor: '#FFFFFF',
+    navBarButtonColor: 'white',
   };
 
   static navigatorButtons = {

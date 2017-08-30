@@ -23,6 +23,8 @@ export default function registerScreens() {
 
   if (Platform.OS === 'android') {
     Navigation.registerComponent(screens.tabsContainer, () => TabsContainer);
-    Navigation.registerComponent(screens.tabsContent, () => TabContent);
+    Navigation.registerComponent(screens.tabsContent, () =>
+      withDrawer(screens.tabsContainer)(TabContent),
+    );
   }
 }

@@ -12,6 +12,7 @@ export default function About() {
 About.navigatorStyle = {
   navBarBackgroundColor: 'rgb(255, 0, 0)',
   navBarTextColor: '#FFFFFF',
+  navBarButtonColor: 'white',
 };
 
 About.navigatorButtons = {
