@@ -9,6 +9,10 @@ class TabsContainer extends Component {
     // Tab indicator
     selectedTopTabIndicatorHeight: 6,
     selectedTopTabIndicatorColor: 'pink',
+
+    // Those two settings below make the toolbar collapsible when scrolling
+    topBarCollapseOnScroll: true,
+    navBarHideOnScroll: true,
   };
 }
 
