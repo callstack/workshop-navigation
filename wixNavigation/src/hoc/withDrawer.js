@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Navigation } from 'react-native-navigation';
-import { BackHandler } from 'react-native';
+import { BackHandler, Platform } from 'react-native';
 import hoistNonReactStatic from 'hoist-non-react-statics';
 import { screens } from '../constants';
 
@@ -66,15 +65,20 @@ const withDrawer = screenId => WrappedComponent => {
         screenId === screens.home
       ) {
         if (event.id === 'logout') {
-          Navigation.startSingleScreenApp({
-            screen: {
-              screen: screens.login,
-            },
+          if (Platform.OS === 'ios') {
+            this.props.navigator.toggleTabs({
+              to: 'hidden',
+              animated: false,
+            });
+          }
+          this.props.navigator.resetTo({
+            screen: screens.login,
             drawer: {
               left: {
                 screen: screens.drawer,
               },
             },
+            animated: false,
           });
         }
       }
