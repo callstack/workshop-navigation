@@ -78,7 +78,6 @@ const withDrawer = screenId => WrappedComponent => {
                 screen: screens.drawer,
               },
             },
-            animated: false,
           });
         }
       }
