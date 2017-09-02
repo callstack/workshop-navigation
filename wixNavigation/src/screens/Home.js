@@ -39,6 +39,14 @@ export default class Home extends Component {
             })}
           color="blue"
         />
+        <Button
+          title="toggleDrawer"
+          onPress={() =>
+            this.props.navigator.toggleDrawer({
+              side: 'left',
+              animated: true,
+            })}
+        />
       </View>
     );
   }
