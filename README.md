@@ -1,5 +1,7 @@
 # Workshop - React Native navigation
 
+Official workshop of [React Native EU](https://react-native.eu/)
+
 - [ReactNavigation](/ReactNavigation) example using [react-community/react-navigation](https://reactnavigation.org/) library
 - [wixNavigation](/wixNavigation) example using [wix/react-native-navigation](https://wix.github.io/react-native-navigation/) library
 
@@ -25,5 +27,5 @@
 * Drawer navigation for Android
 * Bottom tabs navigation for iOS
 * Top Tabs
-* Modals
+* Modal and lightboxes
 * Deep linking
